@@ -1,0 +1,36 @@
+version: "1.0.2"
+
+metadata:
+  name: "gym-workout-recommender"
+  description: "This flow generates a personalized gym workout plan based on user preferences and goals"
+  author: "devps2003"
+  tags: [fitness, gym, workout, health]
+  private: false
+
+inputs:
+  fitness_goal:
+    type: string
+    description: "Enter your primary fitness goal"
+    required: true
+    example: "Build muscle, lose weight, improve endurance"
+  experience_level:
+    type: string
+    description: "Enter your gym experience level"
+    required: true
+    example: "Beginner, Intermediate, Advanced"
+  available_days:
+    type: integer
+    description: "Enter how many days per week you can work out"
+    required: true
+    example: 4
+
+model:
+  provider: "anthropic"
+  name: "claude-3.5-sonnet"
+
+prompt:
+  "Create a personalized gym workout plan for a user whose goal is {fitness_goal}, with an experience level of {experience_level}, and can work out {available_days} days per week."
+
+readme:
+  "This flow generates a personalized gym workout plan tailored to the user's fitness goals, experience level, and available workout days per week. Users input their preferences, and the flow creates a suitable plan."
+  
